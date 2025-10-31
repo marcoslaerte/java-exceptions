@@ -39,7 +39,7 @@ public class AdocaoController {
     public ResponseEntity<String> solicitar(@RequestBody @Valid SolicitacaoDeAdocaoDTO dados){
         try {
             this.service.solicitar(dados);
-        } catch (IllegalStateException ex) {
+        } catch (IllegalStateException | UnsupportedOperationException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
 
